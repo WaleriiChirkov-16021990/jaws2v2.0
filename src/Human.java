@@ -19,8 +19,18 @@ public class Human {
 		this.gender = gender;
 	}
 	
+	
 	public Human() {
 		this.id = ++id;
+	}
+	public Human(Human human){
+		this.id = ++id;
+		this.mother = human.getMother();
+		this.father = human.getFather();
+		this.firstName = human.getFirstName();
+		this.secondName = human.getSecondName();
+		this.age = human.getAge();
+		this.gender = human.getGender();
 	}
 	
 	public static int getId() {
@@ -28,7 +38,7 @@ public class Human {
 	}
 	
 	public String getMother() {
-		return mother;
+		return this.mother;
 	}
 	
 	public void setMother(String mother) {
@@ -36,7 +46,7 @@ public class Human {
 	}
 	
 	public String getFather() {
-		return father;
+		return this.father;
 	}
 	
 	public void setFather(String father) {
@@ -44,7 +54,7 @@ public class Human {
 	}
 	
 	public String getFirstName() {
-		return firstName;
+		return this.firstName;
 	}
 	
 	public void setFirstName(String firstName) {
@@ -52,7 +62,7 @@ public class Human {
 	}
 	
 	public String getSecondName() {
-		return secondName;
+		return this.secondName;
 	}
 	
 	public void setSecondName(String secondName) {
@@ -60,7 +70,7 @@ public class Human {
 	}
 	
 	public int getAge() {
-		return age;
+		return this.age;
 	}
 	
 	public void setAge(int age) {
@@ -68,7 +78,7 @@ public class Human {
 	}
 	
 	public String getGender() {
-		return gender;
+		return this.gender;
 	}
 	
 	public void setGender(String gender) {
@@ -79,81 +89,121 @@ public class Human {
 	public boolean equals(Object o) {
 		if (this == o) return true;
 		if (!(o instanceof Human human)) return false;
-		return getAge() == human.getAge() && getMother().equals(human.getMother()) && getFather().equals(human.getFather()) && getFirstName().equals(human.getFirstName()) && getSecondName().equals(human.getSecondName()) && getGender().equals(human.getGender());
+		return this.getAge() == human.getAge() && this.getMother().equals(human.getMother()) && this.getFather().equals(human.getFather()) && this.getFirstName().equals(human.getFirstName()) && this.getSecondName().equals(human.getSecondName()) && this.getGender().equals(human.getGender());
 	}
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(getMother(), getFather(), getFirstName(), getSecondName(), getAge(), getGender());
+		return Objects.hash(this.getMother(), this.getFather(), this.getFirstName(), this.getSecondName(), this.getAge(), this.getGender());
 	}
 	
 	public boolean equalsFullNameChildren(Object o) {
 		if (this == o) return true;
 		if (!(o instanceof Human human)) return false;
-		return getSecondName().equals(human.getFather().toLowerCase().split("")[0]) &&
-				getFirstName().equals(human.getFather().toLowerCase().split("")[1]);
+		return this.getSecondName().equals(((Human)o).getFather().toLowerCase().split("")[0]) &&
+				this.getFirstName().equals(((Human)o).getFather().toLowerCase().split("")[1]);
 	}
 	
-	public boolean equalsFullNameSon(Object o) {
+	public boolean equalsFullNameSon(Human o) {
 		if (this == o) return true;
-		if (!(o instanceof Human human)) return false;
-		return getSecondName().equals(human.getFather().toLowerCase().split("")[0]) &&
-				getFirstName().equals(human.getFather().toLowerCase().split("")[1]) &&
-				human.getGender().toLowerCase().equals("мужской");
+//		if (!(o instanceof  human)) return false;
+		String[]fullName = ((Human)o).getFather().toLowerCase().split(" ");
+		String secondName = this.getSecondName();
+		return secondName.equals(fullName[0]) &&
+				this.getFirstName().equals(fullName[1]) &&
+				((Human)o).getGender().equals("мужской");
+	}
+	
+	@Override
+	public String toString() {
+		return "Human{" +
+				"mother='" + mother + '\'' +
+				", father='" + father + '\'' +
+				", firstName='" + firstName + '\'' +
+				", secondName='" + secondName + '\'' +
+				", age=" + age +
+				", gender='" + gender + '\'' +
+				'}';
 	}
 	
 	public boolean equalsFullNameBrother(Object o) {
 		if (this == o) return true;
 		if (!(o instanceof Human human)) return false;
-		return getFather().toLowerCase().equals(human.getFather().toLowerCase()) &&
-				getMother().equals(human.getFather().toLowerCase()) &&
-				human.getGender().toLowerCase().equals("мужской");
+		return this.getFather().equals(human.getFather()) &&
+				this.getMother().equals(human.getMother()) &&
+				human.getGender().equals("мужской");
 	}
 	
 	public boolean equalsFullNameStepBrother(Object o) {
 		if (this == o) return true;
 		if (!(o instanceof Human human)) return false;
-		return getFather().toLowerCase().equals(human.getFather().toLowerCase()) &&
-				human.getGender().toLowerCase().equals("мужской")   ||
-				getMother().equals(human.getFather().toLowerCase()) &&
-				human.getGender().toLowerCase().equals("мужской");
+		return
+//				this.getFather().equals(human.getFather()) &&
+//				human.getGender().equals("мужской")   ||
+//				this.getMother().equals(human.getMother()) &&
+//						human.getGender().equals("мужской")
+		this.getFather().equals(human.getFather())&&
+				human.getGender().equals("мужской") && !(
+				this.getMother().equals(human.getMother()) &&
+						human.getGender().equals("мужской")) ||
+				!(this.getFather().equals(human.getFather())&&
+						human.getGender().equals("мужской")) &&(
+						this.getMother().equals(human.getMother()) &&
+								human.getGender().equals("мужской")) ;
 	}
 	
 	public boolean equalsFullNameSister(Object o) {
 		if (this == o) return true;
 		if (!(o instanceof Human human)) return false;
-		return getFather().equals(human.getFather()) &&
-				getMother().equals(human.getFather().toLowerCase()) &&
+		return this.getFather().equals(human.getFather()) &&
+				this.getMother().equals(human.getMother()) &&
 				human.getGender().equals("женский");
 	}
 	public boolean equalsFullNameStepSister(Object o) {
 		if (this == o) return true;
 		if (!(o instanceof Human human)) return false;
-		return getFather().equals(human.getFather())&&
-				human.getGender().equals("женский") ||
-				getMother().equals(human.getFather().toLowerCase()) &&
-				human.getGender().equals("женский");
+		return this.getFather().equals(human.getFather())&&
+				human.getGender().equals("женский") && !(
+				this.getMother().equals(human.getMother()) &&
+						human.getGender().equals("женский")) ||
+				!(this.getFather().equals(human.getFather())&&
+						human.getGender().equals("женский")) &&(
+						this.getMother().equals(human.getMother()) &&
+						human.getGender().equals("женский")) ;
 	}
 	
 	public boolean equalsFullNameFather(Object o) {
 		if (this == o) return true;
 		if (!(o instanceof Human human)) return false;
-		return getFather().toLowerCase().split("")[0].equals(human.getSecondName()) &&
-				getFather().toLowerCase().split("")[1].equals(human.getFirstName());
+		String[]fullName = this.getFather().toLowerCase().split(" ");
+		return fullName[0].equals(human.getSecondName().toLowerCase()) &&
+				fullName[1].equals(human.getFirstName().toLowerCase());
 	}
 	
 	public boolean equalsFullNameDauther(Object o) {
 		if (this == o) return true;
 		if (!(o instanceof Human human)) return false;
-		return getSecondName().equals(human.getFather().toLowerCase().split("")[0]) &&
-				getFirstName().equals(human.getFather().toLowerCase().split("")[1]) &&
-				human.getGender().toLowerCase().equals("женский");
+		String[]fullNameFather = human.getFather().toLowerCase().split(" ");
+//		String[]fullNameMother = human.getMother().toLowerCase().split("");
+		return this.getSecondName().toLowerCase().equals(fullNameFather[0]) &&
+				this.getFirstName().toLowerCase().equals(fullNameFather[1]) &&
+				human.getGender().equals("женский");
 	}
 	public boolean equalsFullNameMother(Object o) {
 		if (this == o) return true;
 		if (!(o instanceof Human human)) return false;
-		return getMother().split("")[0].equals(human.getSecondName()) &&
-				getMother().split("")[1].equals(human.getFirstName());
+		String[]fullNameMother = this.getMother().toLowerCase().split(" ");
+		return fullNameMother[0].equals(human.getSecondName().toLowerCase()) &&
+				fullNameMother[1].equals(human.getFirstName().toLowerCase());
 	}
 	
+	public boolean isNotNullHuman(){
+		if (getMother().equals(null)
+				&& getFather().equals(null)
+				&& getFirstName().equals(null)
+				&& getSecondName().equals(null)
+				&& getGender().equals(null) ){
+			return false;
+		} else return true;
+	}
 }
