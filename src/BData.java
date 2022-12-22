@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -38,16 +37,6 @@ public class BData {
 				"humanFamilyCollection=" + humanFamilyCollection +
 				'}';
 	}
-	
-//	public Object findFatherHuman(Human human){
-//		for (Human man: this.humanFamilyCollection
-//		     ) {
-//			if (man.equalsFullNameFather(human)){
-//				return man;
-//			}
-//		}
-//		return false;
-//	}
 	
 	public ConnectionPeople findFamilyTree(){
 		ConnectionPeople cp = new ConnectionPeople(new ArrayList<FamilyTree>(), this);

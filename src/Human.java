@@ -1,18 +1,31 @@
 import java.util.Objects;
 
-public class Human {
+public class Human extends anyHuman implements anyPerson {
 	private static int id = 0;
-	private String mother;
-	private String father;
 	private String firstName;
 	private String secondName;
 	private int age;
 	private String gender;
+	@Override
+	public void setName(String name) {
+		this.firstName = name.split(" ")[1];
+		this.secondName = name.split(" ")[0];
+	}
+	
+	@Override
+	public void setAge(int age) {
+		this.age = age;
+	}
+	
+	@Override
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 	
 	public Human(String mother, String father, String firstName, String secondName, int age, String gender) {
 		this.id = ++id;
-		this.mother = mother;
-		this.father = father;
+		super.setMother(mother);
+		super.setFather(father);
 		this.firstName = firstName;
 		this.secondName = secondName;
 		this.age = age;
@@ -25,8 +38,8 @@ public class Human {
 	}
 	public Human(Human human){
 		this.id = ++id;
-		this.mother = human.getMother();
-		this.father = human.getFather();
+		super.setMother(human.getMother());
+		super.setFather(human.getFather());
 		this.firstName = human.getFirstName();
 		this.secondName = human.getSecondName();
 		this.age = human.getAge();
@@ -35,22 +48,6 @@ public class Human {
 	
 	public static int getId() {
 		return id;
-	}
-	
-	public String getMother() {
-		return this.mother;
-	}
-	
-	public void setMother(String mother) {
-		this.mother = mother;
-	}
-	
-	public String getFather() {
-		return this.father;
-	}
-	
-	public void setFather(String father) {
-		this.father = father;
 	}
 	
 	public String getFirstName() {
@@ -73,17 +70,11 @@ public class Human {
 		return this.age;
 	}
 	
-	public void setAge(int age) {
-		this.age = age;
-	}
 	
 	public String getGender() {
 		return this.gender;
 	}
 	
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
 	
 	@Override
 	public boolean equals(Object o) {
@@ -101,8 +92,11 @@ public class Human {
 		if (this == o) return true;
 		if (!(o instanceof Human human)) return false;
 		String[] father = human.getFather().toLowerCase().split(" ");
+		String[] mother = human.getMother().toLowerCase().split(" ");
 		return this.getSecondName().toLowerCase().equals(father[0]) &&
-				this.getFirstName().toLowerCase().equals(father[1]);
+				this.getFirstName().toLowerCase().equals(father[1]) ||
+						this.getSecondName().toLowerCase().equals(mother[0]) &&
+						this.getFirstName().toLowerCase().equals(mother[1]);
 	}
 	
 	public boolean equalsFullNameSon(Object o) {
@@ -118,8 +112,8 @@ public class Human {
 	@Override
 	public String toString() {
 		return "Human{" +
-				"mother='" + mother + '\'' +
-				", father='" + father + '\'' +
+				"mother='" + super.getMother() + '\'' +
+				", father='" + super.getFather() + '\'' +
 				", firstName='" + firstName + '\'' +
 				", secondName='" + secondName + '\'' +
 				", age=" + age +
@@ -191,4 +185,5 @@ public class Human {
 		return fullNameMother[0].equals(human.getSecondName().toLowerCase()) &&
 				fullNameMother[1].equals(human.getFirstName().toLowerCase());
 	}
+	
 }

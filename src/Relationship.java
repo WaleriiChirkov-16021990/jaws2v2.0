@@ -15,6 +15,12 @@ public class Relationship {
 	private  final String STEPSISTER = "stepSister";
 	
 	private final String GREAT_GRANDFATHER = "greatGrandFather";
+	
+	public String getGREAT_GRANDMOTHER() {
+		return GREAT_GRANDMOTHER;
+	}
+	
+	private final String GREAT_GRANDMOTHER = "greatGrandMother";
 	private final String GREAT_GRANDSON = "greatGrandson";
 	
 	public String getGREAT_GRANDDAUGHTER() {

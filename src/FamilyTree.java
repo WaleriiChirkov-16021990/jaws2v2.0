@@ -47,6 +47,14 @@ public class FamilyTree {
 							}
 						}
 					}
+					if (hum.equalsFullNameMother(bases) && !(bases.equals(hum))){
+						this.tree.put(relationship.getGRANDMOTHER(), bases);
+						for (Human great_fthr: base.getHumanFamilyCollection()) {
+							if (bases.equalsFullNameMother(great_fthr) && !(bases.equals(great_fthr))) {
+								this.tree.put(relationship.getGREAT_GRANDMOTHER(), great_fthr);
+							}
+						}
+					}
 				}
 			} else {
 				if (!this.tree.containsKey(relationship.getFATHER())) {

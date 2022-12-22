@@ -5,11 +5,12 @@ public class Printer {
 	public void toString(BData humans) {
 		for (Human h: humans.getHumanFamilyCollection()) {
 			System.out.println(h);
-			System.out.println("\n");
+//			System.out.println("\n");
 		}
 	}
 	
 	public void printerFamilyFree(ConnectionPeople connectionPeople){
+		System.out.println("\nТекущая база данных: ");
 		new Printer().toString(connectionPeople.getFamily());
 		for (FamilyTree familyTree: connectionPeople.getTreeFamily()
 		     ) {
