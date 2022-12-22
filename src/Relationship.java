@@ -23,6 +23,9 @@ public class Relationship {
 	
 	private final String GREAT_GRANDDAUGHTER = "greatGrandDaughter";
 	
+	public Relationship() {
+	}
+	
 	public String getGREAT_GRANDSON() {
 		return GREAT_GRANDSON;
 	}
@@ -31,8 +34,6 @@ public class Relationship {
 		return GREAT_GRANDFATHER;
 	}
 	
-	public Relationship() {
-	}
 	
 	public String getDAUGHTER() {
 		return DAUGHTER;

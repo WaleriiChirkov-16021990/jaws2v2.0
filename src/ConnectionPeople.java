@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
 public class ConnectionPeople {
-	ArrayList<Relationship> treeFamily;
-	ArrayList<Human> family;
+	private ArrayList<FamilyTree> treeFamily;
+	private BData family;
 	
-	public ConnectionPeople(ArrayList<Relationship> treeFamily, ArrayList<Human> family) {
+	public ConnectionPeople(ArrayList<FamilyTree> treeFamily, BData family) {
 		this.treeFamily = treeFamily;
 		this.family = family;
 	}
@@ -12,19 +12,22 @@ public class ConnectionPeople {
 	public ConnectionPeople() {
 	}
 	
-	public ArrayList<Relationship> getTreeFamily() {
+	public ArrayList<FamilyTree> getTreeFamily() {
 		return treeFamily;
 	}
 	
-	public void setTreeFamily(ArrayList<Relationship> treeFamily) {
+	public void setTreeFamily(ArrayList<FamilyTree> treeFamily) {
 		this.treeFamily = treeFamily;
 	}
+	public void addTreeFamily(FamilyTree treeFamily) {
+		this.treeFamily.add(treeFamily);
+	}
 	
-	public ArrayList<Human> getFamily() {
+	public BData getFamily() {
 		return family;
 	}
 	
-	public void setFamily(ArrayList<Human> family) {
+	public void setFamily(BData family) {
 		this.family = family;
 	}
 	
@@ -35,6 +38,4 @@ public class ConnectionPeople {
 				", family=" + family +
 				'}';
 	}
-	
-	
 }

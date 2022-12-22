@@ -105,14 +105,14 @@ public class Human {
 				this.getFirstName().toLowerCase().equals(father[1]);
 	}
 	
-	public boolean equalsFullNameSon(Human o) {
+	public boolean equalsFullNameSon(Object o) {
 		if (this == o) return true;
-//		if (!(o instanceof  human)) return false;
-		String[]fullName = ((Human)o).getFather().toLowerCase().split(" ");
+		if (!(o instanceof Human human)) return false;
+		String[]fullName = human.getFather().toLowerCase().split(" ");
 		String secondName = this.getSecondName();
 		return secondName.equals(fullName[0]) &&
 				this.getFirstName().equals(fullName[1]) &&
-				((Human)o).getGender().equals("мужской");
+				human.getGender().equals("мужской");
 	}
 	
 	@Override
@@ -191,14 +191,4 @@ public class Human {
 		return fullNameMother[0].equals(human.getSecondName().toLowerCase()) &&
 				fullNameMother[1].equals(human.getFirstName().toLowerCase());
 	}
-	
-//	public boolean isNotNullHuman(){
-//		if (getMother().equals(null)
-//				&& getFather().equals(null)
-//				&& getFirstName().equals(null)
-//				&& getSecondName().equals(null)
-//				&& getGender().equals(null) ){
-//			return false;
-//		} else return true;
-//	}
 }

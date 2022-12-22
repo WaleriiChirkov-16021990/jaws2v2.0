@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -38,16 +39,26 @@ public class BData {
 				'}';
 	}
 	
-	public Object findFatherHuman(Human human){
-		for (Human man: this.humanFamilyCollection
-		     ) {
-			if (man.equalsFullNameFather(human)){
-				return man;
-			}
-		}
-		return false;
-	}
+//	public Object findFatherHuman(Human human){
+//		for (Human man: this.humanFamilyCollection
+//		     ) {
+//			if (man.equalsFullNameFather(human)){
+//				return man;
+//			}
+//		}
+//		return false;
+//	}
 	
-
+	public ConnectionPeople findFamilyTree(){
+		ConnectionPeople cp = new ConnectionPeople(new ArrayList<FamilyTree>(), this);
+			for (Human human : this.getHumanFamilyCollection()) {
+				FamilyTree familyTree = new FamilyTree();
+				familyTree.setFullName(human);
+				familyTree.fillFamilyTreeUser(this);
+				cp.getTreeFamily().add(familyTree);
+			}
+			cp.setFamily(this);
+			return cp;
+		}
 }
 
