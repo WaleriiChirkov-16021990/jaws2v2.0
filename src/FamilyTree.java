@@ -33,10 +33,6 @@ public class FamilyTree {
 	
 	public void fillFamilyTreeUser(ArrayList<Human> base) {
 		Relationship relationship = new Relationship();
-//		Human father = null;
-//		Human mother = null;
-//		Human son  = null;
-//		Human daughter = null;
 		
 		for (Human hum :
 				base) {
@@ -44,21 +40,32 @@ public class FamilyTree {
 			if (this.getFullName().equalsFullNameFather(hum)) {
 				this.tree.put(relationship.getFATHER(), hum);
 				for (Human bases : base) {
-					if (hum.equalsFullNameFather(bases)) {
+					if (hum.equalsFullNameFather(bases) && !(hum.equals(bases))) {
 						this.tree.put(relationship.getGRANDFATHER(), bases);
+						for (Human great_fthr: base) {
+							if (bases.equalsFullNameFather(great_fthr) && !(bases.equals(great_fthr))) {
+								this.tree.put(relationship.getGREAT_GRANDFATHER(), great_fthr);
+							}
+						}
 					}
 				}
+			} else {
+				Human unknown1 = new Human("unknown", "unknown",this.getFullName().getFather().split(" ")[1], this.getFullName().getFather().split(" ")[0], 0, "мужской");
+				this.tree.put(relationship.getFATHER(), unknown1);
 			}
 			if (this.getFullName().equalsFullNameMother(hum)) {
 				this.tree.put(relationship.getMOTHER(), hum);
 				for (Human j : base) {
-//					if (hum.isNotNullHuman() && hum.equalsFullNameFather(h)) {
-//						this.tree.put(relationship.getGRANDFATHER() + "2", h);
-//					}
-				if (hum.equalsFullNameMother(j)) {
+					if (!(hum.equals(j)) && hum.equalsFullNameFather(j)) {
+						this.tree.put(relationship.getGRANDFATHER() + "2", j);
+					}
+				if (hum.equalsFullNameMother(j) && !(hum.equals(j)) ) {
 						this.tree.put(relationship.getGRANDMOTHER(), j);
 					}
 				}
+			} else {
+				Human unknown2 = new Human("unknown", "unknown",this.getFullName().getMother().split(" ")[1], this.getFullName().getMother().split(" ")[0], 0, "женский");
+				this.tree.put(relationship.getMOTHER(), unknown2);
 			}
 			if (this.getFullName().equalsFullNameBrother(hum)) {
 				this.tree.put(relationship.getBROTHER(), hum);
@@ -75,20 +82,75 @@ public class FamilyTree {
 			if (this.getFullName().equalsFullNameChildren(hum)) {
 				if (hum.getGender().equals("женский")) {
 					this.tree.put(relationship.getDAUGHTER(), hum);
+					for (Human children: base) {
+						if (hum.equalsFullNameChildren(children)) {
+							if (children.getGender().equals("женский")) {
+								this.tree.put(relationship.getGRANDDAUGHTER(), children);
+//								for (Human grandChildren: base
+//								) {
+//									if (children.equalsFullNameChildren(grandChildren) && !(children.equals(grandChildren))) {
+//										if (grandChildren.getGender().equals("женский")) {
+//											this.tree.put(relationship.getGREAT_GRANDSON(), grandChildren);
+//
+//										} else {
+//											this.tree.put(relationship.getGREAT_GRANDSON(), grandChildren);
+//										}
+//									}
+//								}
+							} else {
+								this.tree.put(relationship.getGRANDSON(), children);
+//								for (Human grandChildren: base
+//								) {
+//									if (children.equalsFullNameChildren(grandChildren) && !(children.equals(grandChildren))) {
+//										if (grandChildren.getGender().equals("женский")) {
+//											this.tree.put(relationship.getGREAT_GRANDSON(), grandChildren);
+//
+//										} else {
+//											this.tree.put(relationship.getGREAT_GRANDSON(), grandChildren);
+//										}
+//									}
+//								}
+							}
+						}
+					}
+					
 				} else {
 					this.tree.put(relationship.getSON(), hum);
+					for (Human children: base
+					) {
+						if (hum.equalsFullNameChildren(children)) {
+							if (children.getGender().equals("женский")) {
+								this.tree.put(relationship.getGRANDDAUGHTER(), children);
+//								for (Human grandChildren: base
+//								) {
+//									if (children.equalsFullNameChildren(grandChildren) && !(children.equals(grandChildren))) {
+//										if (grandChildren.getGender().equals("мужской")) {
+//											this.tree.put(relationship.getGREAT_GRANDSON(), grandChildren);
+//
+//										} else {
+//											this.tree.put(relationship.getGREAT_GRANDDAUGHTER(), grandChildren);
+//										}
+//									}
+//								}
+							} else {
+								this.tree.put(relationship.getGRANDSON(), children);
+//								for (Human grandChildren: base
+//								) {
+//									if (children.equalsFullNameChildren(grandChildren) && !(children.equals(grandChildren))) {
+//										if (children.getGender().equals("женский")) {
+//											this.tree.put(relationship.getGREAT_GRANDSON(), grandChildren);
+//
+//										} else {
+//											this.tree.put(relationship.getGREAT_GRANDSON(), grandChildren);
+//										}
+//									}
+//								}
+							}
+						}
+					}
 				}
 			}
-			
 		}
-			
-//			for (Human h : base) {
-//				if (son.isNotNullHuman() && son.equalsFullNameSon(h)) {
-//					this.tree.put(relationship.getGRANDSON(), h);
-//				} else if (daughter.isNotNullHuman() && daughter.equalsFullNameDauther(h)) {
-//					this.tree.put(relationship.getGRANDDAUGHTER(), h);
-//				}
-//			}
 	}
 	
 	public void printer (){
