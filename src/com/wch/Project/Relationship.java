@@ -1,3 +1,8 @@
+package com.wch.Project;
+
+/**
+ * Класс хранения возможных родственных связей в виде строк-констант.
+ */
 public class Relationship {
 	private final String DAUGHTER = "daughter";
 	private  final String FATHER = "father";
@@ -13,18 +18,21 @@ public class Relationship {
 	private  final String COUSINBROTHER = "cousinBrother";
 	private  final String STEPBROTHER = "stepBrother";
 	private  final String STEPSISTER = "stepSister";
-	
 	private final String GREAT_GRANDFATHER = "greatGrandFather";
-	
-	public String getGREAT_GRANDMOTHER() {
-		return GREAT_GRANDMOTHER;
-	}
-	
 	private final String GREAT_GRANDMOTHER = "greatGrandMother";
 	private final String GREAT_GRANDSON = "greatGrandson";
 	
+	
+	/**
+	 * Ниже описаны методы получения констант.
+	 * @return - константы в виде строки.
+	 */
+	
 	public String getGREAT_GRANDDAUGHTER() {
 		return GREAT_GRANDDAUGHTER;
+	}
+	public String getGREAT_GRANDMOTHER() {
+		return GREAT_GRANDMOTHER;
 	}
 	
 	private final String GREAT_GRANDDAUGHTER = "greatGrandDaughter";

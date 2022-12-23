@@ -1,3 +1,5 @@
+package com.wch.Project;
+
 import java.util.ArrayList;
 
 public class ConnectionPeople {

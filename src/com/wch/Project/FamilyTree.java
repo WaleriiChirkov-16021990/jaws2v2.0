@@ -1,35 +1,31 @@
+package com.wch.Project;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class FamilyTree {
-	private Map<String,Human> tree;
+	private Map<String, Human> tree;
 	private Human fullName;
 	
 	public FamilyTree(Map<String, Human> tree, Human fullName) {
 		this.tree = tree;
 		this.fullName = fullName;
 	}
-	
 	public FamilyTree() {
 		this.tree = new HashMap<>();
 	}
-	
 	public Map<String, Human> getTree() {
 		return tree;
 	}
-	
 	public void setTree(Map<String, Human> tree) {
 		this.tree = tree;
 	}
-	
 	public Human getFullName() {
 		return fullName;
 	}
-	
 	public void setFullName(Human fullName) {
 		this.fullName = fullName;
 	}
-	
 	public void fillFamilyTreeUser(BData base) {
 		Relationship relationship = new Relationship();
 		

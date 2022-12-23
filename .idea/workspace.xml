@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="dc43e8a2-51b4-4b3d-a41b-5bf0958dcd80" name="Changes" comment="final version Homework 2">
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tree.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wch/Project/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wch/Project/BData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ConnectionPeople.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wch/Project/ConnectionPeople.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FamilyTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wch/Project/FamilyTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wch/Project/Human.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wch/Project/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Printer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wch/Project/Printer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Relationship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wch/Project/Relationship.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/anyHuman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wch/AbstractClass/anyHuman.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/anyPerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wch/Interface/anyPerson.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2J9BqwhRYeaEfMezGG9ikaHiX72" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Валерий Чирков/IdeaProjects/Tree/src/com/wch/Implements",
+    "settings.editor.selected.configurable": "copyright"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Валерий Чирков\IdeaProjects\Tree\src\com\wch\Implements" />
+      <recent name="C:\Users\Валерий Чирков\IdeaProjects\Tree\src" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.wch.Implements" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dc43e8a2-51b4-4b3d-a41b-5bf0958dcd80" name="Changes" comment="" />
+      <created>1671480614016</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1671480614016</updated>
+    </task>
+    <task id="LOCAL-00001" summary="первый коммит, накидал на скорую руку класс людей. создал коллекцию людей и итерабельно ищу в коллекции связи.">
+      <created>1671615720911</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1671615720911</updated>
+    </task>
+    <task id="LOCAL-00002" summary="2-программа работает на 2 первых юзера, проверяю далее">
+      <created>1671644980737</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1671644980737</updated>
+    </task>
+    <task id="LOCAL-00003" summary="начало оформления">
+      <created>1671694100028</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1671694100028</updated>
+    </task>
+    <task id="LOCAL-00004" summary="горизонт не за горами, почти закончено решение для дз2">
+      <created>1671704321352</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1671704321352</updated>
+    </task>
+    <task id="LOCAL-00005" summary="final version Homework 2">
+      <created>1671725834637</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1671725834637</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="первый коммит, накидал на скорую руку класс людей. создал коллекцию людей и итерабельно ищу в коллекции связи." />
+    <MESSAGE value="2-программа работает на 2 первых юзера, проверяю далее" />
+    <MESSAGE value="начало оформления" />
+    <MESSAGE value="горизонт не за горами, почти закончено решение для дз2" />
+    <MESSAGE value="final version Homework 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="final version Homework 2" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="FamilyTree" memberName="tree" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+</project>

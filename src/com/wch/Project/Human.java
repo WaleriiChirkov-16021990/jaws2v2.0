@@ -1,27 +1,56 @@
+package com.wch.Project;
+
+import com.wch.AbstractClass.anyHuman;
+import com.wch.Interface.anyPerson;
 import java.util.Objects;
 
+/**
+ * Класс описывает человека для генеологического древа наследую свойства класса anyHuman и реализуя интерфейс anyPerson
+ */
 public class Human extends anyHuman implements anyPerson {
 	private static int id = 0;
 	private String firstName;
 	private String secondName;
 	private int age;
 	private String gender;
+	
+	/**
+	 * переопределенный метод задает/ меняет имя человеку
+	 * @param name - имя строкой
+	 */
 	@Override
 	public void setName(String name) {
 		this.firstName = name.split(" ")[1];
 		this.secondName = name.split(" ")[0];
 	}
 	
+	/**
+	 * переопределенный метод задает/ меняет возраст человеку
+	 * @param age -положительное числовое значение.
+	 */
 	@Override
 	public void setAge(int age) {
 		this.age = age;
 	}
 	
+	/**
+	 * переопределенный метод задает/ меняет пол человеку
+	 * @param gender - мужской или женский.
+	 */
 	@Override
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
 	
+	/**
+	 * Конструктор человека, каждый человек хранит уникальный ID
+	 * @param mother - полное имя матери строкой
+	 * @param father - полное имя отца строкой
+	 * @param firstName - свое имя строкой
+	 * @param secondName - своя фамилия строкой
+	 * @param age- свой возраст числом
+	 * @param gender - свой пол
+	 */
 	public Human(String mother, String father, String firstName, String secondName, int age, String gender) {
 		this.id = ++id;
 		super.setMother(mother);
@@ -31,8 +60,6 @@ public class Human extends anyHuman implements anyPerson {
 		this.age = age;
 		this.gender = gender;
 	}
-	
-	
 	public Human() {
 		this.id = ++id;
 	}
@@ -46,48 +73,41 @@ public class Human extends anyHuman implements anyPerson {
 		this.gender = human.getGender();
 	}
 	
+	/**
+	 * немного Getter & Setter
+	 * @return
+	 */
 	public static int getId() {
 		return id;
 	}
-	
 	public String getFirstName() {
 		return this.firstName;
 	}
-	
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-	
 	public String getSecondName() {
 		return this.secondName;
 	}
-	
 	public void setSecondName(String secondName) {
 		this.secondName = secondName;
 	}
-	
 	public int getAge() {
 		return this.age;
 	}
-	
-	
 	public String getGender() {
 		return this.gender;
 	}
-	
-	
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
 		if (!(o instanceof Human human)) return false;
 		return this.getAge() == human.getAge() && this.getMother().equals(human.getMother()) && this.getFather().equals(human.getFather()) && this.getFirstName().equals(human.getFirstName()) && this.getSecondName().equals(human.getSecondName()) && this.getGender().equals(human.getGender());
 	}
-	
 	@Override
 	public int hashCode() {
 		return Objects.hash(this.getMother(), this.getFather(), this.getFirstName(), this.getSecondName(), this.getAge(), this.getGender());
 	}
-	
 	public boolean equalsFullNameChildren(Object o) {
 		if (this == o) return true;
 		if (!(o instanceof Human human)) return false;
@@ -98,7 +118,6 @@ public class Human extends anyHuman implements anyPerson {
 						this.getSecondName().toLowerCase().equals(mother[0]) &&
 						this.getFirstName().toLowerCase().equals(mother[1]);
 	}
-	
 	public boolean equalsFullNameSon(Object o) {
 		if (this == o) return true;
 		if (!(o instanceof Human human)) return false;
@@ -108,7 +127,6 @@ public class Human extends anyHuman implements anyPerson {
 				this.getFirstName().equals(fullName[1]) &&
 				human.getGender().equals("мужской");
 	}
-	
 	@Override
 	public String toString() {
 		return "Human{" +
@@ -120,7 +138,6 @@ public class Human extends anyHuman implements anyPerson {
 				", gender='" + gender + '\'' +
 				'}';
 	}
-	
 	public boolean equalsFullNameBrother(Object o) {
 		if (this == o) return true;
 		if (!(o instanceof Human human)) return false;
@@ -128,7 +145,6 @@ public class Human extends anyHuman implements anyPerson {
 				this.getMother().equals(human.getMother()) &&
 				human.getGender().equals("мужской");
 	}
-	
 	public boolean equalsFullNameStepBrother(Object o) {
 		if (this == o) return true;
 		if (!(o instanceof Human human)) return false;
@@ -141,7 +157,6 @@ public class Human extends anyHuman implements anyPerson {
 						this.getMother().equals(human.getMother()) &&
 								human.getGender().equals("мужской")) ;
 	}
-	
 	public boolean equalsFullNameSister(Object o) {
 		if (this == o) return true;
 		if (!(o instanceof Human human)) return false;
@@ -161,7 +176,6 @@ public class Human extends anyHuman implements anyPerson {
 						this.getMother().equals(human.getMother()) &&
 						human.getGender().equals("женский")) ;
 	}
-	
 	public boolean equalsFullNameFather(Object o) {
 		if (this == o) return true;
 		if (!(o instanceof Human human)) return false;
@@ -169,7 +183,6 @@ public class Human extends anyHuman implements anyPerson {
 		return fullName[0].equals(human.getSecondName().toLowerCase()) &&
 				fullName[1].equals(human.getFirstName().toLowerCase());
 	}
-	
 	public boolean equalsFullNameDauther(Object o) {
 		if (this == o) return true;
 		if (!(o instanceof Human human)) return false;
@@ -185,5 +198,4 @@ public class Human extends anyHuman implements anyPerson {
 		return fullNameMother[0].equals(human.getSecondName().toLowerCase()) &&
 				fullNameMother[1].equals(human.getFirstName().toLowerCase());
 	}
-	
 }

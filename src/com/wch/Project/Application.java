@@ -1,7 +1,15 @@
+package com.wch.Project;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * Application
+ */
 public class Application {
+	/**
+	 * метод получает базу анкет людей, проводит с ней исследование и выводит результат в консоль.
+	 */
 	public void run(){
 		
 		// Предположим мы скачали какую-нибудь базу, или предложили заполнить анкеты членам какой то семьи,
