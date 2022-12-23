@@ -108,6 +108,12 @@ public class Human extends anyHuman implements anyPerson {
 	public int hashCode() {
 		return Objects.hash(this.getMother(), this.getFather(), this.getFirstName(), this.getSecondName(), this.getAge(), this.getGender());
 	}
+	
+	/**
+	 * метод анализа объекта "о"(в частности человека), на предмет, является ли он ребенком текущего человека.
+	 * @param o - человек переданный для анализа
+	 * @return - boolean истина или ложь
+	 */
 	public boolean equalsFullNameChildren(Object o) {
 		if (this == o) return true;
 		if (!(o instanceof Human human)) return false;
@@ -118,6 +124,11 @@ public class Human extends anyHuman implements anyPerson {
 						this.getSecondName().toLowerCase().equals(mother[0]) &&
 						this.getFirstName().toLowerCase().equals(mother[1]);
 	}
+	/**
+	 * метод анализа объекта "о"(в частности человека), на предмет, является ли он сыном текущего человека.
+	 * @param o - человек переданный для анализа
+	 * @return - boolean истина или ложь
+	 */
 	public boolean equalsFullNameSon(Object o) {
 		if (this == o) return true;
 		if (!(o instanceof Human human)) return false;
@@ -127,6 +138,11 @@ public class Human extends anyHuman implements anyPerson {
 				this.getFirstName().equals(fullName[1]) &&
 				human.getGender().equals("мужской");
 	}
+	
+	/**
+	 * toString...
+	 * @return строка с полями и параметрами человека.
+	 */
 	@Override
 	public String toString() {
 		return "Human{" +
@@ -138,6 +154,11 @@ public class Human extends anyHuman implements anyPerson {
 				", gender='" + gender + '\'' +
 				'}';
 	}
+	/**
+	 * метод анализа объекта "о"(в частности человека), на предмет, является ли он братом текущего человека.
+	 * @param o - человек переданный для анализа
+	 * @return - boolean истина или ложь
+	 */
 	public boolean equalsFullNameBrother(Object o) {
 		if (this == o) return true;
 		if (!(o instanceof Human human)) return false;
@@ -145,6 +166,11 @@ public class Human extends anyHuman implements anyPerson {
 				this.getMother().equals(human.getMother()) &&
 				human.getGender().equals("мужской");
 	}
+	/**
+	 * метод анализа объекта "о"(в частности человека), на предмет, является ли он сводным братом текущего человека.
+	 * @param o - человек переданный для анализа
+	 * @return - boolean истина или ложь
+	 */
 	public boolean equalsFullNameStepBrother(Object o) {
 		if (this == o) return true;
 		if (!(o instanceof Human human)) return false;
@@ -157,6 +183,11 @@ public class Human extends anyHuman implements anyPerson {
 						this.getMother().equals(human.getMother()) &&
 								human.getGender().equals("мужской")) ;
 	}
+	/**
+	 * метод анализа объекта "о"(в частности человека), на предмет, является ли он сестрой текущего человека.
+	 * @param o - человек переданный для анализа
+	 * @return - boolean истина или ложь
+	 */
 	public boolean equalsFullNameSister(Object o) {
 		if (this == o) return true;
 		if (!(o instanceof Human human)) return false;
@@ -164,6 +195,11 @@ public class Human extends anyHuman implements anyPerson {
 				this.getMother().equals(human.getMother()) &&
 				human.getGender().equals("женский");
 	}
+	/**
+	 * метод анализа объекта "о"(в частности человека), на предмет, является ли он сводной сестрой текущего человека.
+	 * @param o - человек переданный для анализа
+	 * @return - boolean истина или ложь
+	 */
 	public boolean equalsFullNameStepSister(Object o) {
 		if (this == o) return true;
 		if (!(o instanceof Human human)) return false;
@@ -176,6 +212,11 @@ public class Human extends anyHuman implements anyPerson {
 						this.getMother().equals(human.getMother()) &&
 						human.getGender().equals("женский")) ;
 	}
+	/**
+	 * метод анализа объекта "о"(в частности человека), на предмет, является ли он отцом текущего человека.
+	 * @param o - человек переданный для анализа
+	 * @return - boolean истина или ложь
+	 */
 	public boolean equalsFullNameFather(Object o) {
 		if (this == o) return true;
 		if (!(o instanceof Human human)) return false;
@@ -183,6 +224,11 @@ public class Human extends anyHuman implements anyPerson {
 		return fullName[0].equals(human.getSecondName().toLowerCase()) &&
 				fullName[1].equals(human.getFirstName().toLowerCase());
 	}
+	/**
+	 * метод анализа объекта "о"(в частности человека), на предмет, является ли он дочерью текущего человека.
+	 * @param o - человек переданный для анализа
+	 * @return - boolean истина или ложь
+	 */
 	public boolean equalsFullNameDauther(Object o) {
 		if (this == o) return true;
 		if (!(o instanceof Human human)) return false;
@@ -191,6 +237,11 @@ public class Human extends anyHuman implements anyPerson {
 				this.getFirstName().toLowerCase().equals(fullNameFather[1]) &&
 				human.getGender().equals("женский");
 	}
+	/**
+	 * метод анализа объекта "о"(в частности человека), на предмет, является ли он мамой текущего человека.
+	 * @param o - человек переданный для анализа
+	 * @return - boolean истина или ложь
+	 */
 	public boolean equalsFullNameMother(Object o) {
 		if (this == o) return true;
 		if (!(o instanceof Human human)) return false;

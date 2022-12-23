@@ -3,6 +3,9 @@ package com.wch.Project;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * класс описываает генеологическое дерево относительно указанного человека
+ */
 public class FamilyTree {
 	private Map<String, Human> tree;
 	private Human fullName;
@@ -14,18 +17,29 @@ public class FamilyTree {
 	public FamilyTree() {
 		this.tree = new HashMap<>();
 	}
+	
+	/**
+	 * Getter
+	 * @return
+	 */
 	public Map<String, Human> getTree() {
 		return tree;
-	}
-	public void setTree(Map<String, Human> tree) {
-		this.tree = tree;
 	}
 	public Human getFullName() {
 		return fullName;
 	}
+	/**
+	 * Setter
+	 * @param fullName
+	 */
 	public void setFullName(Human fullName) {
 		this.fullName = fullName;
 	}
+	
+	/**
+	 * метод который проводит исследование в полученной базе и заполняет словарь генеологического дерева найденными связями и соответствующими им людьми.
+	 * @param base - переданная база.
+	 */
 	public void fillFamilyTreeUser(BData base) {
 		Relationship relationship = new Relationship();
 		
@@ -96,10 +110,12 @@ public class FamilyTree {
 		}
 	}
 	
+	/**
+	 * Метод выводит словарь описывающий тип родственной связи с человеком и соответствующего этой связи человека.
+	 */
 	public void printer (){
 		tree.entrySet().forEach(entry -> {
 			System.out.println(entry.getKey() + " = " + entry.getValue());
 		});
 	}
-	
 }
